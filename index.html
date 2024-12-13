@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 1rem;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background: #555;
+        }
+        .message {
+            margin-top: 1rem;
+            color: red;
+        }
+        .kun-image {
+            margin-top: 1rem;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="message" id="message"></div>
+        <img src="https://via.placeholder.com/100" alt="蔡徐坤" class="kun-image" id="kunImage">
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+
+            if (username === 'admin' && password === 'password123') {
+                message.style.color = 'green';
+                message.textContent = 'Login successful!';
+                document.getElementById('kunImage').src = 'https://via.placeholder.com/100?text=Success';
+            } else {
+                message.style.color = 'red';
+                message.textContent = 'Invalid username or password.';
+                document.getElementById('kunImage').src = 'https://via.placeholder.com/100?text=TryAgain';
+            }
+        });
+    </script>
+</body>
+</html>
